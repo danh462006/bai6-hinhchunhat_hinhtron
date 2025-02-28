@@ -19,25 +19,46 @@ namespace bai6_hinhchunhat_hinhtron
 
         private void btnso1_Click(object sender, EventArgs e)
         {
-            int cdai= Convert.ToInt32(txtso1.Text);
-            int crong= Convert.ToInt32(txtso2.Text);
-            int dt, chuv;
-            dt = cdai * crong;
-            chuv = (crong + dt)*2;
-            lab1.Text = ("diện tích: " + dt).ToString();
-            lab2.Text = ("chu vi: " + chuv).ToString();
+
+            lab1.Text = "-Diện tích: " + dientichchunhat(double.Parse(txtso1.Text), double.Parse(txtso2.Text)) + "\n - chu vi: " + chuvichunhat(double.Parse(txtso1.Text), double.Parse(txtso2.Text));
 
         }
 
         private void btnso2_Click(object sender, EventArgs e)
         {
-            int bk= Convert.ToInt32(txtso3.Text);
-            double dtht, chuvht;
-            dtht = 3.14 * (bk * bk);
-            chuvht = (bk * 2) * 3.14;
-            lab3.Text = ("diện tích: " + dtht).ToString();
-            lab4.Text = ("chu vi: " + chuvht).ToString();
+            lab3.Text = "-Diện tích: " + dientichtron(double.Parse(txtso3.Text)) + "\n- chu vi: " + chuvitron(double.Parse( txtso3.Text));
+
+        }
+        double dientichchunhat(double dai, double rong) { return dai * rong; }
+        double chuvichunhat(double dai, double rong) { return (dai + rong)*2; }
+        double dientichtron(double bk) { return 3.14*( bk * bk); }
+        double chuvitron(double bk) { return (bk * 2) * 3.14; }
+
+        private void btn03_Click(object sender, EventArgs e)
+        {
+            if (rdbso1.Checked)
+            {
+                lab1.Text = "-Diện tích: " + dientichchunhat(double.Parse(txtso1.Text), double.Parse(txtso2.Text)) ;
+            }
+            if (rdbso2.Checked)
+            {
+                lab1.Text = "\n - chu vi: " + chuvichunhat(double.Parse(txtso1.Text), double.Parse(txtso2.Text));
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (chb01.Checked)
+            {
+                lab1.Text = "-Diện tích: " + dientichchunhat(double.Parse(txtso1.Text), double.Parse(txtso2.Text));
+            }
+            if (chb02.Checked)
+            {
+                lab1.Text += "\n - chu vi: " + chuvichunhat(double.Parse(txtso1.Text), double.Parse(txtso2.Text));
+            }
 
         }
     }
+    
+
 }
